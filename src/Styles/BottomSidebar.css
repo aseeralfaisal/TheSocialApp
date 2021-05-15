@@ -1,0 +1,85 @@
+.chat {
+  position: fixed;
+  top: 90%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+.chat input {
+  background-color: rgb(44, 44, 44);
+  color: var(--light);
+  border-radius: 1em;
+  padding: 0.5em 5em 0rem 5em;
+  width: 30rem;
+  outline: none;
+  font-size: 16px;
+  border: none;
+  /* box-shadow: rgba(255, 255, 255, 0.85) 2px 2px 8px; */
+}
+.chat-bg {
+  position: fixed;
+  background-color: var(--dark);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 100%;
+  left: 0;
+  z-index: -1;
+}
+.text-features {
+  display: flex;
+  position: fixed;
+  font-weight: bolder;
+  margin-left: -25rem;
+  color: var(--disabled);
+  padding: 0.15rem 2em 0rem 2em;
+  border-radius: 1em;
+}
+.feature {
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--light);
+}
+.insertPhoto{
+  position: fixed;
+  cursor: pointer;
+  margin-left: 23.5rem;
+  margin-top: 0.4rem;
+}
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: #fff;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
+  }
+}

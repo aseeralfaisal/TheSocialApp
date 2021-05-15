@@ -1,0 +1,132 @@
+.feed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 6rem;
+}
+.create-post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-style: solid;
+  border-color: var(--chatLine);
+  border-width: 0.1rem;
+  border-radius: 1rem;
+  width: 30rem;
+  text-align: center;
+}
+.create-post label {
+  padding: 0 1rem;
+  color: rgb(179, 179, 179);
+  margin: 0 -0.5rem;
+  font-size: 1rem;
+}
+.file-selector {
+  margin-top: 0.5rem;
+  margin-bottom: -1rem;
+  color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.close-btn {
+  margin: 0 0.5rem;
+  opacity: 0.5;
+}
+
+.close-btn:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+.text-post {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0.5rem;
+}
+.text-post img {
+  margin-left: 25.5rem;
+  position: absolute;
+  opacity: 0.5;
+}
+.text-post img:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+.text-post input {
+  border-radius: 1rem;
+  background-color: rgb(44, 44, 44);
+  font-size: 1rem;
+  width: 28rem;
+  padding: 0 1rem;
+  outline: none;
+  border: none;
+  text-align: center;
+}
+::-webkit-input-placeholder {
+  text-align: center;
+}
+.post-features {
+  display: inline-flex;
+  margin: 1rem;
+}
+.post-feature {
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  margin: 0 0.5rem;
+}
+.post-feature label:hover {
+  cursor: pointer;
+  color: white;
+}
+.post-feature img {
+  opacity: 0.9;
+}
+.posts {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-style: solid;
+  border-color: var(--chatLine);
+  border-width: 0.1rem;
+  border-radius: 1rem;
+  width: 30rem;
+}
+.post-likes {
+  cursor: pointer;
+}
+.post-top {
+  display: flex;
+  justify-content: flex-start;
+  margin: 1rem 0;
+}
+.post-top label {
+  margin: 0 0.5rem;
+  font-size: 1.25rem;
+}
+.post-img {
+  width: 450px;
+}
+.comment-input {
+  border-radius: 1rem;
+  background-color: rgb(44, 44, 44);
+  font-size: 1rem;
+  width: 23rem;
+  padding: 0 1rem;
+  margin: 1rem;
+  outline: none;
+  border: none;
+  text-align: center;
+}
+.btn1 {
+  background: none;
+  border: 0.1rem solid rgba(255, 255, 255, 0.5);
+  color: var(--light);
+  background-color: rgb(34, 34, 34);
+  border-radius: 0.8em;
+  font-size: 1rem;
+  padding: 0 1rem;
+  height: 2.5rem;
+}

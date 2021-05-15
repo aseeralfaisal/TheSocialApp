@@ -1,0 +1,83 @@
+.top_header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: var(--dark);
+  color: var(--light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  z-index: 5;
+}
+.head_title {
+  display: flex;
+  margin: 0 4rem;
+}
+.title {
+  margin-top: 0.5em;
+  margin-left: 0.8rem;
+  color: var(--light);
+}
+.top_nav {
+  margin-top: 0.5em;
+  margin-right: 3rem;
+  /* font-size: 0.5rem; */
+  list-style: none;
+  display: flex;
+  z-index: 10000;
+}
+.link-to {
+  display: flex;
+  text-decoration: none;
+  background: none;
+  border: none;
+  margin: 0rem 0.6rem;
+  color: var(--light);
+  background-color: rgb(44, 44, 44);
+  border-radius: 1.25rem;
+  align-items: center;
+  padding: 0.1rem;
+}
+.link-to h2 {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}
+.link-to h2:hover {
+  cursor: pointer;
+}
+.link-to:hover {
+  background-color: rgb(58, 58, 58);
+}
+.link-to img {
+  opacity: 0.9;
+}
+.text {
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+}
+.flyout-parent {
+  position: fixed;
+  top: 12%;
+  left: 88%;
+}
+.flyout {
+  background-color: var(--disabled);
+  border-style: none;
+  border-radius: 1rem;
+  padding: 0.5rem 1.25rem;
+}
+.flyout:hover{
+  background-color: rgb(59, 59, 59);
+}
+.flyout button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  display: flex;
+  align-items: flex-start;
+}
+.flyout button:hover{
+  cursor: pointer;
+}

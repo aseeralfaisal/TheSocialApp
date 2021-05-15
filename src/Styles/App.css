@@ -1,0 +1,30 @@
+:root {
+  --userColor: rgb(100, 12, 117);
+  --chatColor: rgb(41, 4, 99);
+  --nonUserColor: rgb(68, 68, 68);
+  --disabled: rgb(50, 50, 50);
+  --dark: rgb(29, 29, 29);
+  --light: rgb(230, 230, 230);
+  --chatLine: rgba(255, 255, 255, 0.158);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Baloo Tammudu 2";
+  scroll-behavior: smooth;
+}
+body{
+  background-color: var(--dark);
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: grey;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--chatColor);
+  border-radius: 0 0 2rem 2rem;
+}
+

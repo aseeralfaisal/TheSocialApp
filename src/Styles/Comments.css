@@ -1,0 +1,17 @@
+.likes {
+    margin: 1rem 0;
+}
+.likes label{
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+}
+.likes img{
+    margin: 0 0.3rem;
+}
+.root{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    margin-left: 1rem;
+}
