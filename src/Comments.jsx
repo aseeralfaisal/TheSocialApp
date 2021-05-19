@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { db } from "./Firebase";
 import likesIco from "./icons/thumb_up.svg";
+import likesFilledIco from "./icons/thumb_up_filled.svg";
 import "./Styles/Comments.css";
 
 function Comments({ postID, user }) {
@@ -10,12 +11,16 @@ function Comments({ postID, user }) {
   const [likesFlag, setLikesFlag] = useState(true);
 
   useEffect(() => {
-    db.collection("posts")
-      .doc(postID)
-      .collection("comments")
-      .onSnapshot((snap) => {
-        setCommentView(snap.docs.map((doc) => doc.data()));
-      });
+    try {
+      db.collection("posts")
+        .doc(postID)
+        .collection("comments")
+        .onSnapshot((snap) => {
+          setCommentView(snap.docs.map((doc) => doc.data()));
+        });
+    } catch (err) {
+      console.log(err);
+    }
   }, [postID]);
 
   useEffect(() => {
@@ -64,7 +69,11 @@ function Comments({ postID, user }) {
       <div className="root">
         <div className="likes">
           <label onClick={likesClick}>
-            <img src={likesIco} alt="" width="35rem" />
+            <img
+              src={likesFlag ? likesIco : likesFilledIco}
+              alt=""
+              width="35rem"
+            />
             <label style={{ visibility: likes < 1 ? "hidden" : "visible" }}>
               {likes}
             </label>

@@ -1,3 +1,6 @@
+.title {
+  object-fit: scale-down;
+}
 .top_header {
   position: fixed;
   width: 100%;
@@ -37,7 +40,7 @@
   background-color: rgb(44, 44, 44);
   border-radius: 1.25rem;
   align-items: center;
-  padding: 0.1rem;
+  padding: 0.2rem 0.5rem;
 }
 .link-to h2 {
   font-size: 1rem;
@@ -52,6 +55,9 @@
 }
 .link-to img {
   opacity: 0.9;
+}
+.link-to-active {
+  background-color: rgb(58, 58, 58);  
 }
 .text {
   margin-top: 0.5rem;
@@ -68,7 +74,7 @@
   border-radius: 1rem;
   padding: 0.5rem 1.25rem;
 }
-.flyout:hover{
+.flyout:hover {
   background-color: rgb(59, 59, 59);
 }
 .flyout button {
@@ -78,6 +84,6 @@
   display: flex;
   align-items: flex-start;
 }
-.flyout button:hover{
+.flyout button:hover {
   cursor: pointer;
 }

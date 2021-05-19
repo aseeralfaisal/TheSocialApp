@@ -6,7 +6,7 @@ import BottomSidebar from "./BottomSidebar";
 import { auth, db } from "./Firebase";
 import ChatView from "./ChatView";
 import UserList from "./UserList";
-// import { useHistory } from "react-router";
+import { useHistory } from "react-router";
 
 const Messages = ({ user, setUser, dpImage, setDpImage, authUser }) => {
   const [input, setInput] = useState("");
@@ -14,13 +14,13 @@ const Messages = ({ user, setUser, dpImage, setDpImage, authUser }) => {
   const [finder, setFinder] = useState("");
   const [font, setFont] = useState("n");
   const [click, setClick] = useState(false);
-  // const history = useHistory();
+  const history = useHistory();
 
-  // if (authUser) {
-  //   history.push("/messages");
-  // } else {
-  //   history.push("/");
-  // }
+  if (authUser) {
+    history.push("/messages");
+  } else {
+    history.push("/");
+  }
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       setUser(auth.currentUser.displayName);

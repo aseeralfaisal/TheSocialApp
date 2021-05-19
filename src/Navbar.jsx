@@ -6,13 +6,13 @@ import logoutICO from "./icons/logout.svg";
 import menuICO from "./icons/menu.svg";
 import "./Styles/App.css";
 import "./Styles/Navbar.css";
-import { Link, useHistory } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import { useState } from "react";
 import { db, auth } from "./Firebase";
 import AccountInfo from "./AccountInfo";
 import info_settingsICO from "./icons/info_settings.svg";
 
-const Navbar = ({ user, dpImage }) => {
+const Navbar = ({ user, dpImage, newMsg, setNewMsg }) => {
   const [backdrop, setBackdrop] = useState(false);
   const history = useHistory();
   const [menu, setMenu] = useState(false);
@@ -69,37 +69,30 @@ const Navbar = ({ user, dpImage }) => {
             </div>
           </div>
 
-          <button className="link-to">
-            <Link to="/feed" className="link-to">
-              <img src={feed} width="40" alt="" />
-              <h2 className="text">Feed</h2>
-            </Link>
-          </button>
-          <button className="link-to">
-            <Link to="/messages" className="link-to">
-              <img src={messages} width="40" alt="" />
-              <h2 className="text">Chat</h2>
-            </Link>
-          </button>
+          <NavLink exact to="/feed" className="link-to" activeClassName="link-to-active">
+            <img src={feed} width="40" alt="" />
+            <h2 className="text">Feed</h2>
+          </NavLink>
 
-          <button className="link-to">
-            <Link to="/profile" className="link-to">
-              <img
-                src={dpImage !== "" ? dpImage : profile}
-                width="40px"
-                height="40px"
-                alt=""
-                style={{ borderRadius: "50%", filter: "none" }}
-              />
-              <h2 className="text">{auth.currentUser.displayName}</h2>
-            </Link>
-          </button>
+          <NavLink exact to="/messages" className="link-to" activeClassName="link-to-active">
+            <img src={messages} width="40" alt="" />
+            <h2 className="text">Chat</h2>
+          </NavLink>
 
-          <button className="link-to" onClick={() => setMenu(!menu)}>
-            <Link className="link-to">
-              <img src={menuICO} width="40" alt="" />
-            </Link>
-          </button>
+          <NavLink exact to="/profile" className="link-to" activeClassName="link-to-active">
+            <img
+              src={dpImage !== "" ? dpImage : profile}
+              width="40px"
+              height="40px"
+              alt=""
+              style={{ borderRadius: "50%", filter: "none" }}
+            />
+            <h2 className="text">{user}</h2>
+          </NavLink>
+
+          <Link className="link-to" onClick={() => setMenu(!menu)}>
+            <img src={menuICO} width="40" alt="" />
+          </Link>
         </ul>
       </div>
     </>

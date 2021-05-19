@@ -10,6 +10,8 @@ import closeICO from "./icons/close.svg";
 import postICO from "./icons/post.svg";
 import { db, storage } from "./Firebase";
 import { useEffect } from "react";
+import WeatherWidget from "./WeatherWidget";
+import NewsHeadlines from "./NewsHeadlines";
 // import { useHistory } from "react-router";
 
 const Feed = ({ user, dpImage, setDpImage, authUser }) => {
@@ -105,6 +107,8 @@ const Feed = ({ user, dpImage, setDpImage, authUser }) => {
   return (
     <div>
       <Navbar user={user} dpImage={dpImage} />
+      <NewsHeadlines />
+      <WeatherWidget />
       <div className="feed">
         <div className="create-post">
           <div className="text-post">
