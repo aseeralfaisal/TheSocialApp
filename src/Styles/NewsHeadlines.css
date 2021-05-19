@@ -1,0 +1,27 @@
+.news-container {
+  position: fixed;
+  width: 30%;
+  margin: -1rem 65rem;
+}
+.news {
+  display: flex;
+  border: 0.125rem solid var(--chatLine);
+  border-radius: 1.25rem;
+  padding: 1.35rem 5rem;
+  margin: 1rem 0;
+  align-items: center;
+}
+.news img {
+  border-radius: 5rem;
+  height: 80px;
+  width: 80px;
+  /* border: 0.15rem solid var(--chatLine); */
+}
+.titles {
+  font-size: 1rem;
+  margin-left: 1.5rem;
+}
+.titles:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
