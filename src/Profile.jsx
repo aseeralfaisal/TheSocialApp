@@ -67,7 +67,7 @@ const Profile = ({ user, dpImage, setDpImage, authUser }) => {
       storageRef.put(dpFile).then((snap) =>
         snap.ref.getDownloadURL().then((url) => {
           db.collection("dplink")
-            .doc(auth.currentUser.displayName + "Info")
+            .doc(user + "Info")
             .update({
               dpImage: url,
             });

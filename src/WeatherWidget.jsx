@@ -35,7 +35,7 @@ const WeatherWidget = () => {
               alt=""
             />
             <h1>{weather.main.temp}°c</h1>
-            <div style={{ marginLeft: "-7rem" }}>
+            <div className="feels-like" style={{ marginLeft: "-7rem", fontSize:"0.9rem" }}>
               Feels like: {weather.main.feels_like} °c
             </div>
           </div>

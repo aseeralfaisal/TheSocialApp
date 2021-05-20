@@ -1,23 +1,24 @@
 .news-container {
-  position: fixed;
+  position: absolute;
   width: 30%;
-  margin: -1rem 65rem;
+  top: 5rem;
+  left: 65rem;
 }
 .news {
   display: flex;
   border: 0.125rem solid var(--chatLine);
   border-radius: 1.25rem;
-  padding: 1.35rem 5rem;
+  padding: 1.35rem 5%;
   margin: 1rem 0;
   align-items: center;
 }
 .news img {
   border-radius: 5rem;
-  height: 80px;
-  width: 80px;
-  /* border: 0.15rem solid var(--chatLine); */
+  height: 70px;
+  width: 70px;
 }
 .titles {
+  text-decoration: none;
   font-size: 1rem;
   margin-left: 1.5rem;
 }

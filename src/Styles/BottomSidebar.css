@@ -17,6 +17,9 @@
   border: none;
   /* box-shadow: rgba(255, 255, 255, 0.85) 2px 2px 8px; */
 }
+.emoji-mart-scroll + .emoji-mart-bar {
+  display: none;
+}
 .chat-bg {
   position: fixed;
   background-color: var(--dark);
@@ -41,7 +44,7 @@
   font-size: 24px;
   color: var(--light);
 }
-.insertPhoto{
+.insertPhoto {
   position: fixed;
   cursor: pointer;
   margin-left: 23.5rem;
@@ -78,7 +81,8 @@
     top: 8px;
     height: 64px;
   }
-  50%, 100% {
+  50%,
+  100% {
     top: 24px;
     height: 32px;
   }

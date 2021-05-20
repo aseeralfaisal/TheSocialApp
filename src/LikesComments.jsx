@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { db } from "./Firebase";
 import likesIco from "./icons/thumb_up.svg";
 import likesFilledIco from "./icons/thumb_up_filled.svg";
-import "./Styles/Comments.css";
+import "./Styles/LikesComments.css";
 
 function Comments({ postID, user }) {
   const [commentView, setCommentView] = useState([]);
@@ -41,7 +41,14 @@ function Comments({ postID, user }) {
     if (user) {
       if (likesFlag) {
         if (likeList.includes(user)) {
-          setLikesFlag(false);
+          likeList.splice(likeList.indexOf(user), 1);
+          setLikesFlag(true);
+          db.collection("posts")
+            .doc(postID)
+            .update({
+              likes: (lik += Number(likes) - 1),
+              likeList: [...likeList],
+            });
         } else {
           db.collection("posts")
             .doc(postID)
@@ -78,6 +85,13 @@ function Comments({ postID, user }) {
               {likes}
             </label>
           </label>
+          <div
+            style={{
+              display:
+              // eslint-disable-next-line
+                likeList === undefined || likeList == "" ? "none" : "flex",
+            }}
+          >{`liked by ${likeList}`}</div>
         </div>
         {commentView
           // .slice(0, 3)
