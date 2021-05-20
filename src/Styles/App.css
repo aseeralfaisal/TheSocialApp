@@ -14,7 +14,7 @@
   font-family: "Baloo Tammudu 2";
   scroll-behavior: smooth;
 }
-body{
+body {
   background-color: var(--dark);
 }
 ::-webkit-scrollbar {
@@ -27,4 +27,3 @@ body{
   background: var(--chatColor);
   border-radius: 0 0 2rem 2rem;
 }
-

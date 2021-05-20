@@ -7,6 +7,7 @@
   border-radius: 1.25rem;
   padding: 0.6rem 5rem;
   width: 30%;
+  overflow: hidden;
 }
 .weather1 {
   position: fixed;
@@ -18,17 +19,10 @@
   border-radius: 1.25rem;
   padding: 1rem 5rem;
   width: 30%;
+  overflow: hidden;
 }
 .weather1 label {
-    font-size: 1.25rem;
-    margin: 0.5rem;
-}
-@media (min-width: 480px) and (max-width: 1500px) {
-    .weather1{
-        display:none
-    }    
-    .weather {
-        display: none
-    }
+  font-size: 1.25rem;
+  margin: 0.5rem;
 }
 

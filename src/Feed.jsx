@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar from "./Navbar";
 import "./Styles/Feed.css";
-import Comments from "./Comments";
+import Comments from "./LikesComments";
 import insertPhoto from "./icons/insert_photo.svg";
 import face from "./icons/face_white_24dp.svg";
 import profileICO from "./icons/profile.svg";
@@ -21,6 +21,7 @@ const Feed = ({ user, dpImage, setDpImage, authUser }) => {
   const [comments, setComments] = useState();
   const [loader, setLoader] = useState(false);
   const [progressLoader, setProgressLoader] = useState(true);
+
   // const history = useHistory();
 
   // if (authUser) {
@@ -70,6 +71,7 @@ const Feed = ({ user, dpImage, setDpImage, authUser }) => {
               title: postInput,
               img: url,
               likes: 0,
+              likeList: [],
               user: user,
               dpImage: dpImage,
               timestamp: new Date(),
@@ -182,7 +184,7 @@ const Feed = ({ user, dpImage, setDpImage, authUser }) => {
                 width="35px"
                 style={{ filter: "invert(1)" }}
               />
-              <label>Emoji</label>
+              <label onclick={(e) => console.log(e)}>Emoji</label>
             </div>
           </div>
         </div>

@@ -3,6 +3,7 @@ import "./Styles/NewsHeadlines.css";
 
 const NewsHeadlines = () => {
   const [headlines, setHeadlines] = useState([]);
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     fetch(
@@ -11,6 +12,7 @@ const NewsHeadlines = () => {
       .then((res) => res.json())
       .then((res) => {
         setHeadlines(res);
+        setLoader(false);
       })
       .catch((err) => {
         console.log(err);
@@ -21,38 +23,36 @@ const NewsHeadlines = () => {
     <div>
       {typeof headlines.articles != "undefined" ? (
         <div className="news-container">
-          <div className="news">
-            <img
-              src={headlines.articles[1].urlToImage}
-              alt=""
-              style={{ marginLeft: "-2rem" }}
-            />
-            <label className="titles">{headlines.articles[1].title}</label>
+          <div
+            className="lds-facebook"
+            style={{
+              opacity: loader ? "0.7" : "0",
+              position: "fixed",
+              transform: "scale(1)",
+              marginLeft: "12rem",
+              marginTop: "10rem",
+            }}
+          >
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
-          <div className="news">
-            <img
-              src={headlines.articles[2].urlToImage}
-              alt=""
-              style={{ marginLeft: "-2rem" }}
-            />
-            <label className="titles">{headlines.articles[2].title}</label>
-          </div>
-          <div className="news">
-            <img
-              src={headlines.articles[5].urlToImage}
-              alt=""
-              style={{ marginLeft: "-2rem" }}
-            />
-            <label className="titles">{headlines.articles[5].title}</label>
-          </div>
-          <div className="news">
-            <img
-              src={headlines.articles[4].urlToImage}
-              alt=""
-              style={{ marginLeft: "-2rem" }}
-            />
-            <label className="titles">{headlines.articles[4].title}</label>
-          </div>
+
+          {headlines.articles.map((article, idx) => {
+            console.log(article.url);
+            return (
+              <div className="news" key={idx}>
+                <img
+                  src={article.urlToImage}
+                  alt=""
+                  // style={{ marginLeft: "-4rem" }}
+                />
+                <a className="titles" rel="noopener noreferrer" href={article.url} target="_blank">
+                  {article.title}
+                </a>
+              </div>
+            );
+          })}
         </div>
       ) : (
         ""
