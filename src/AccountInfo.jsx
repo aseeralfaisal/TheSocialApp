@@ -27,13 +27,12 @@ const AccountInfo = ({ dpImage, backdrop, setBackdrop, user }) => {
   const saveInfo = () => {
     db.collection("dplink")
       .doc(user + "Info")
-      .set({
+      .update({
         fullname: fullname,
         name: auth.currentUser.displayName,
         profession: profession,
         address: address,
         hobbies: hobbies,
-        dpImage: "",
       });
     setBackdrop(false);
   };

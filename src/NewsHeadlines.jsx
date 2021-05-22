@@ -39,7 +39,7 @@ const NewsHeadlines = () => {
           </div>
 
           {headlines.articles.map((article, idx) => {
-            console.log(article.url);
+            // console.log(article.url);
             return (
               <div className="news" key={idx}>
                 <img

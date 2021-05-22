@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { db } from "./Firebase";
+import { auth, db } from "./Firebase";
 import likesIco from "./icons/thumb_up.svg";
-import likesFilledIco from "./icons/thumb_up_filled.svg";
+import closeIco from "./icons/close.svg";
+// import likesFilledIco from "./icons/thumb_up_filled.svg";
 import "./Styles/LikesComments.css";
 
-function Comments({ postID, user }) {
+function Comments({ postID, user, posts }) {
   const [commentView, setCommentView] = useState([]);
   const [likes, setLikes] = useState(0);
   const [likeList, setLikeList] = useState([]);
@@ -24,16 +25,17 @@ function Comments({ postID, user }) {
   }, [postID]);
 
   useEffect(() => {
-    try {
-      db.collection("posts")
-        .doc(postID)
-        .onSnapshot((snap) => {
-          setLikes(snap.data().likes);
-          setLikeList(snap.data().likeList);
-        });
-    } catch (err) {
-      console.log(err);
-    }
+    const unsubscribe = db
+      .collection("posts")
+      .doc(postID)
+      .onSnapshot((snap, err) => {
+        setLikes(snap.data().likes);
+        setLikeList(snap.data().likeList);
+        console.log(err);
+      });
+    return () => {
+      unsubscribe();
+    };
   }, [postID]);
 
   const likesClick = (lik) => {
@@ -71,16 +73,16 @@ function Comments({ postID, user }) {
     }
   };
 
+  const deletePost = () => {
+    db.collection("posts").doc(postID).delete();
+  };
+
   return (
     <>
       <div className="root">
         <div className="likes">
           <label onClick={likesClick}>
-            <img
-              src={likesFlag ? likesIco : likesFilledIco}
-              alt=""
-              width="35rem"
-            />
+            <img src={likesIco} alt="" width="35rem" />
             <label style={{ visibility: likes < 1 ? "hidden" : "visible" }}>
               {likes}
             </label>
@@ -88,10 +90,23 @@ function Comments({ postID, user }) {
           <div
             style={{
               display:
-              // eslint-disable-next-line
+                // eslint-disable-next-line
                 likeList === undefined || likeList == "" ? "none" : "flex",
             }}
           >{`liked by ${likeList}`}</div>
+          <div
+            className="delete-post"
+            style={{
+              display: user !== posts.map(post => post.user) ? "flex`" : "flex",
+            }}
+          >
+            <img src={closeIco} alt="" />
+            <label className="delete-post-btn" onClick={deletePost}>
+              Remove post
+            </label>
+          </div>
+
+
         </div>
         {commentView
           // .slice(0, 3)
