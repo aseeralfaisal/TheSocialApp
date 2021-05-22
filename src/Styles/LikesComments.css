@@ -1,17 +1,33 @@
 .likes {
-    margin: 1rem 0;
+  margin: 4rem 0;
+  margin-bottom: -0.5rem;
 }
-.likes label{
-    display: flex;
-    align-items: flex-start;
-    cursor: pointer;
+.likes label {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
 }
-.likes img{
-    margin: 0 0.3rem;
+.likes img {
+  margin: 0 0.3rem;
 }
-.root{
-    display: flex;
-    flex-direction: column;
-    align-self: flex-start;
-    margin-left: 1rem;
+.root {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  margin-left: 1rem;
+}
+.delete-post {
+  display: flex;
+  align-items: center;
+  opacity: 0.5;
+}
+.delete-post img {
+  margin-top: -0.6rem;
+}
+.delete-post-btn {
+  font-size: 1.25rem;
+}
+.delete-post-btn:hover {
+  /* color: rgb(185, 69, 69); */
+  text-decoration: underline;
 }

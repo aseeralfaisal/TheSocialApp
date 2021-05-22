@@ -12,7 +12,7 @@ import { db, storage } from "./Firebase";
 import { useEffect } from "react";
 import WeatherWidget from "./WeatherWidget";
 import NewsHeadlines from "./NewsHeadlines";
-// import { useHistory } from "react-router";
+import { useHistory } from "react-router";
 
 const Feed = ({ user, dpImage, setDpImage, authUser }) => {
   const [postInput, setPostInput] = useState("");
@@ -22,13 +22,13 @@ const Feed = ({ user, dpImage, setDpImage, authUser }) => {
   const [loader, setLoader] = useState(false);
   const [progressLoader, setProgressLoader] = useState(true);
 
-  // const history = useHistory();
+  const history = useHistory();
 
-  // if (authUser) {
-  //   history.push("/feed");
-  // } else {
-  //   history.push("/");
-  // }
+  if (authUser) {
+    history.push("/feed");
+  } else {
+    history.push("/");
+  }
 
   useEffect(() => {
     db.collection("dplink")
@@ -43,7 +43,8 @@ const Feed = ({ user, dpImage, setDpImage, authUser }) => {
   }, [setDpImage, user]);
 
   useEffect(() => {
-    db.collection("posts")
+    const unsubscribe = db
+      .collection("posts")
       .orderBy("timestamp", "desc")
       .onSnapshot((snap) => {
         setPosts(
@@ -54,6 +55,9 @@ const Feed = ({ user, dpImage, setDpImage, authUser }) => {
         );
         setProgressLoader(false);
       });
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   const getFile = (e) => {
@@ -115,6 +119,7 @@ const Feed = ({ user, dpImage, setDpImage, authUser }) => {
         <div className="create-post">
           <div className="text-post">
             <input
+              maxLength="28"
               type="text"
               value={postInput}
               placeholder={`What's on your mind ${user}...`}
@@ -209,6 +214,8 @@ const Feed = ({ user, dpImage, setDpImage, authUser }) => {
                   </label>
                   <div
                     style={{
+                      width: "25%",
+                      position: "absolute",
                       marginTop: "1rem",
                       marginLeft: "-3rem",
                       marginBottom: "-1.5rem",
@@ -219,11 +226,17 @@ const Feed = ({ user, dpImage, setDpImage, authUser }) => {
                   </div>
                 </div>
               </div>
-              <div style={{ display: post.img === "" ? "none" : "flex" }}>
+              <div
+                style={{
+                  display: post.img === "" ? "none" : "flex",
+                  marginTop: "3.25rem",
+                  marginBottom: "-2rem",
+                }}
+              >
                 <img className="post-img" src={post.img} alt="" />
               </div>
             </div>
-            <Comments dpImage={dpImage} user={user} postID={id} />
+            <Comments dpImage={dpImage} user={user} postID={id} posts={posts}/>
             <div style={{ display: "flex", alignItems: "center" }}>
               <img
                 src={profileICO}
